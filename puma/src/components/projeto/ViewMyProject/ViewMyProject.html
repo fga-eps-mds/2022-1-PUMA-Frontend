@@ -1,11 +1,12 @@
 <div class="main-content">
     <b-container fluid class="main-container">
-        <b-row>
-            <b-col cols="6">
-                <span class="main-title">
-                    VER DETALHES DO PROJETO
-                </span>
-            </b-col>
+        <b-row class="m-0" style="align-items: center">
+            <b-button class="btn-return btn-primary" @click="$router.push({path: '/meus-projetos'}).catch(() => {})" title="Voltar">
+                <i class="fa fa-undo"></i>
+            </b-button>
+            <span class="main-title" style="margin-left: 20px;">
+                VER DETALHES DO PROJETO
+            </span>
             <b-col cols="6">
                 <b-row align-h="end">
                     <b-col cols="2" v-if="editable && disabled" class="m-2">
