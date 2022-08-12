@@ -1,7 +1,10 @@
 <div class="main-content">
   <b-container fluid>
-    <b-row>
-      <b-col cols="12">
+    <b-row class="m-0" style="align-items: center;">
+      <b-button class="btn-return btn-primary" @click="$router.push({path: '/disciplinas'}).catch(() => {})" title="Voltar">
+        <i class="fa fa-undo"></i>
+      </b-button>
+      <b-col>
         <div class='main-title'>
           {{ (operacao === 'editar' || operacao === 'visualizar') ? subject.name : 'Cadastrar Disciplina' }}
         </div>
@@ -136,10 +139,10 @@
           <div class="btn-toolbar" style="justify-content: center">
             <div v-if="operacao !== 'visualizar'">
               <input :value="operacao === 'editar' ? 'Salvar' : 'Salvar'" v-if="!isLoading && operacao !== 'visualizar'"
-                type="submit" class="btn btn-warning" @click="onSubmit" />
+                type="submit" class="btn-register btn-warning" @click="onSubmit" />
             </div>
             <div class="m-4" />
-            <b-button class="btn btn-warning cancel-btn" @click="$router.push({path: '/disciplinas'}).catch(() => {})">
+            <b-button class="btn-register btn-warning cancel-btn" @click="$router.push({path: '/disciplinas'}).catch(() => {})">
               VOLTAR
             </b-button>
           </div>

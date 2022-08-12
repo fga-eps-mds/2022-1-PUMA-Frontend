@@ -1,11 +1,12 @@
 <div class="main-content">
   <b-container fluid>
-    <b-row>
-      <b-col cols="12">
-        <div class='main-title'>
-          Cadastrar Projeto
-        </div>
-      </b-col>
+    <b-row class="m-0" style="align-items: center;">
+      <b-button class="btn-return btn-primary" @click="$router.push({path: '/meus-projetos'}).catch(() => {})" title="Voltar">
+        <i class="fa fa-undo"></i>
+      </b-button>
+      <div style="margin-left: 20px;" class='main-title' >
+        Cadastrar Projeto
+      </div>
     </b-row>
     <div class="py-1" />
     <ValidationObserver ref="observer" v-slot="{invalid}" @submit.prevent="onSubmit()">
@@ -105,10 +106,10 @@
             <div>
               <b-row>
                 <b-col>
-                  <input :value="'Enviar'" type="submit" class="btn btn-warning" @click="onSubmit" />
+                  <input :value="'Enviar'" type="submit" class="btn-register btn-warning" @click="onSubmit" />
                 </b-col>
                 <b-col>
-                  <b-button class="btn btn-warning" @click="$router.push({path: '/meus-projetos'}).catch(() => {})">
+                  <b-button class="btn-register btn-warning" @click="$router.push({path: '/meus-projetos'}).catch(() => {})">
                     CANCELAR
                   </b-button>
                 </b-col>
