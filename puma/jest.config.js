@@ -5,7 +5,4 @@ module.exports = {
     'src/**/*.{js,vue}',
     '!src/main.js', // No need to cover bootstrap file
   ],
-  coveragePathIgnorePatterns: [
-    '!**/node_modules/**',
-  ]
 };
