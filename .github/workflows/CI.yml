@@ -17,7 +17,7 @@ jobs:
         node-version: 14.x
 
     - name: Run npm install
-      run: npm install
+      run: npm install --legacy-peer-deps
 
     - name: Run Test
       run: npm test
