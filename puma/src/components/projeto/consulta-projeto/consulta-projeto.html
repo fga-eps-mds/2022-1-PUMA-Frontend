@@ -1,6 +1,12 @@
 <div class="main-content hidden-scroll-bar">
-  <div class="tittle ml-4">
-    {{ operacao === 'meus-projetos' ? 'Meus projetos' : (operacao === 'projetos' ? 'Projetos' : 'Projetos das Disciplinas') }}
+  <div class="d-flex ml-4 mr-5 justify-content-between" style="width: 80% !important">
+    <div class="tittle ml-4">
+      {{ operacao === 'meus-projetos' ? 'Meus projetos' : (operacao === 'projetos' ? 'Projetos' : 'Projetos das Disciplinas') }}
+    </div>
+    <div>
+      <div class="kw-userName">{{this.$store.getters.user.fullName}}</div>
+      <div class="kw-userType">{{this.$store.getters.user.type}}</div>
+    </div>
   </div>
   <div v-if="projects.length" class="tittle sub-tittle ml-4">
     {{ 'Projetos ' + (operacao === 'meus-projetos' ? 'cadastrados pelo usuário' : (operacao === 'projetos' ?
