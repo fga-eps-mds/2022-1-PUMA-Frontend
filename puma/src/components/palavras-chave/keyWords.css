@@ -80,6 +80,19 @@ svg {
   font-size: 40px;
 }
 
+.kw-userName {
+  color: #15355E;
+  font-weight: bold;
+  font-size: 28px;
+}
+
+.kw-userType {
+  color: #15355E;
+  font-size: 18px !important;
+  font-weight: normal !important;
+  float: right;
+}
+
 .kw-sub-title {
   color: #15355E;
   font-size: 20px !important;
