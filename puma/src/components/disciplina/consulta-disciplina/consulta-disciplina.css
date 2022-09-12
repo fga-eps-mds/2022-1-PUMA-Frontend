@@ -118,6 +118,19 @@ svg {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
 }
 
+.kw-userName {
+    color: #15355E;
+    font-weight: bold;
+    font-size: 28px;
+}
+
+.kw-userType {
+color: #15355E;
+font-size: 18px !important;
+font-weight: normal !important;
+float: right;
+}
+
 @media screen and (max-width: 700px) {
     .search-input {
         height: 37px;
@@ -162,5 +175,35 @@ svg {
     
     .demaisDisciplinas thead::after {
         font-size: 18px;
+    }
+
+    .kw-userName {
+        color: #15355E;
+        font-weight: bold;
+        font-size: 22px;
+        overflow: scroll;
+        white-space: nowrap;
+        margin-left: 20px;
+    }
+    
+    .kw-userType {
+        color: #15355E;
+        font-size: 14px !important;
+        font-weight: normal !important;
+        float: right;
+        margin-left: 20px;
+    }
+
+    .tittle {
+        color: #15355E;
+        font-weight: bold;
+        font-size: 26px;
+        margin-right: 20px;
+    }
+    
+    .sub-tittle {
+        font-size: 16px;
+        font-weight: normal;
+        margin-right: 20px;
     }
 }

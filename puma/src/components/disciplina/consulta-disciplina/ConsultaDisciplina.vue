@@ -1,11 +1,19 @@
 <template>
   <div class="main-content hidden-scroll-bar">
-    <h1 class="tittle ml-4">
-      Disciplinas
-    </h1>
+    <div class="d-flex ml-4 mr-5 justify-content-between" style="width: 80% !important">
+      <div>
+        <h1 class="tittle">
+          Disciplinas
+        </h1>
 
-    <div class="tittle sub-tittle ml-4 mb-4">
-      Disciplinas Cadastradas na Plataforma
+        <div class="tittle sub-tittle mb-4">
+          Disciplinas Cadastradas na Plataforma
+        </div>
+      </div>
+      <div>
+        <div class="kw-userName">{{this.$store.getters.user.fullName}}</div>
+        <div class="kw-userType">{{this.$store.getters.user.type}}</div>
+      </div>
     </div>
 
     <div class="ml-4 input-group">
