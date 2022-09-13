@@ -2,11 +2,13 @@
 /* eslint-disable prefer-destructuring */
 import SubjectService from '../../../services/SubjectService';
 import ReturnButton from '../../shared/ReturnButton/ReturnButton.vue';
+import UserLogged from '../../UserLogged/UserLogged.vue';
 
 export default {
   name: 'CadastroDisciplina',
   components: {
     ReturnButton,
+    UserLogged,
   },
   data() {
     return {

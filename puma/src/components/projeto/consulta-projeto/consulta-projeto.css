@@ -69,38 +69,7 @@ svg {
     font-weight: normal !important;
 }
 
-.kw-userName {
-    color: #15355E;
-    font-weight: bold;
-    font-size: 28px;
-}
-
-.kw-userType {
-    color: #15355E;
-    font-size: 18px !important;
-    font-weight: normal !important;
-    float: right;
-}
-
-@media screen and (max-width: 700px) {
-    .kw-userName {
-      margin-top: 5px;
-      color: #15355E;
-      font-weight: bold;
-      font-size: 14px;
-      overflow: scroll;
-      white-space: nowrap;
-      margin-left: 10px;
-    }
-  
-    .kw-userType {
-        color: #15355E;
-        font-size: 12px !important;
-        font-weight: normal !important;
-        float: right;
-        margin-left: 10px;
-    }
-  
+@media screen and (max-width: 700px) {  
     .kw-title {
       color: #15355E;
       font-weight: bold;

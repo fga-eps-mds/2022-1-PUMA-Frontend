@@ -2,12 +2,14 @@
 import ProjectService from '../../../services/ProjectService';
 import getProjectStatus from '../../../utils/enums/status-projeto.enum';
 import ReturnButton from '../../shared/ReturnButton/ReturnButton.vue';
+import UserLogged from '../../UserLogged/UserLogged.vue';
 
 export default {
     name: 'ViewMyProject',
     props: {},
     components: {
         ReturnButton,
+        UserLogged,
       },
     data() {
         return {

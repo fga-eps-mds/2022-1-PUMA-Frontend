@@ -1,10 +1,14 @@
 /* eslint-disable*/
 import ProjectService from '../../../services/ProjectService';
+import UserLogged from '../../UserLogged/UserLogged.vue';
 
 const statusProjetoEnum = require('../../../utils/enums/status-projeto.enum');
 
 export default {
   name: 'ConsultaProjetos',
+  components: {
+    UserLogged,
+  },
   data() {
     return {
       data: {

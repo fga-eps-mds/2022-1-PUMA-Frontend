@@ -1,8 +1,12 @@
 import SubjectService from '../../../services/SubjectService';
+import UserLogged from '../../UserLogged/UserLogged.vue';
 
 /* eslint-disable*/
 export default {
   name: 'ConsultaDisciplinas',
+  components: {
+    UserLogged,
+  },
   data() {
     return {
       data: {

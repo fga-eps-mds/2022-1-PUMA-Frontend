@@ -1,11 +1,13 @@
 /* eslint-disable */
 import ProjectService from '../../../services/ProjectService';
 import ReturnButton from '../../shared/ReturnButton/ReturnButton.vue';
+import UserLogged from '../../UserLogged/UserLogged.vue';
 
 export default {
   name: 'CadastroProjeto',
   components: {
     ReturnButton,
+    UserLogged,
   },
   data() {
     return {

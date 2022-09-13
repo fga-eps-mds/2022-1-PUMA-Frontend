@@ -10,10 +10,7 @@
           Disciplinas Cadastradas na Plataforma
         </div>
       </div>
-      <div>
-        <div class="kw-userName">{{this.$store.getters.user.fullName}}</div>
-        <div class="kw-userType">{{this.$store.getters.user.type}}</div>
-      </div>
+      <UserLogged/>
     </div>
 
     <div class="ml-4 input-group">

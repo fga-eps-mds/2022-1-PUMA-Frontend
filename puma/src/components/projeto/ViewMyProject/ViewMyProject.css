@@ -33,16 +33,3 @@
     color: #fff;
     background-color: #15355E;
 }
-
-.kw-userName {
-    color: #15355E;
-    font-weight: bold;
-    font-size: 28px;
-}
-
-.kw-userType {
-    color: #15355E;
-    font-size: 18px !important;
-    font-weight: normal !important;
-    float: right;
-}

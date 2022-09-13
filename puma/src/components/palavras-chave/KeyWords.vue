@@ -11,10 +11,7 @@
             Palavras-chave cadastradas na plataforma
           </div>
         </div>
-        <div>
-          <div class="kw-userName">{{this.$store.getters.user.fullName}}</div>
-          <div class="kw-userType">{{this.$store.getters.user.type}}</div>
-        </div>
+        <UserLogged/>
       </div>
 
       <div class="div-filter-and-button ml-4">
@@ -122,10 +119,12 @@
 import KeywordService from '../../services/KeywordService';
 import SubjectService from '../../services/SubjectService';
 import ListagemConsultaKeyWords from './ListagemConsultaKeyWords.vue';
+import UserLogged from '../UserLogged/UserLogged.vue';
 
 export default {
   components: {
     ListagemConsultaKeyWords,
+    UserLogged,
   },
 
   data() {
