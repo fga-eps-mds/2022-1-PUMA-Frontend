@@ -125,10 +125,10 @@ svg {
 }
 
 .kw-userType {
-color: #15355E;
-font-size: 18px !important;
-font-weight: normal !important;
-float: right;
+    color: #15355E;
+    font-size: 18px !important;
+    font-weight: normal !important;
+    float: right;
 }
 
 @media screen and (max-width: 700px) {
