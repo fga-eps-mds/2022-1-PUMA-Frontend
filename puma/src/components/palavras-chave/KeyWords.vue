@@ -25,7 +25,7 @@
           :options="subjects"
         >
         </b-form-select>
-        <button class="btn kw-btn" style="width: 25% !important" @click="addKeyword()">
+        <button class="btn kw-btn w-25" @click="addKeyword()">
           <div
             style="
               display: flex;
