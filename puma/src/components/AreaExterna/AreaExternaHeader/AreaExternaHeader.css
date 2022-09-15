@@ -1,0 +1,115 @@
+header {
+    height: auto;
+    padding: 20px 0px;
+    background-color: #15355e;
+    font-size: 16px;
+}
+
+nav {
+    flex: 1;
+    margin: 0px 10px;
+}
+
+ul {
+    width: min-content;
+    margin: 0 auto;
+    display: flex;
+    list-style: none;
+    padding: 0px;
+    align-items: center;
+}
+
+li {
+    margin: 0px 10px 0px 0px;
+    width: max-content;
+}
+
+.ultimoLi {
+    margin-right: 0px !important;
+}
+
+li > a {
+    text-decoration: none;
+}
+
+li > a > div {
+    height: 100%;
+    color: #ffffff;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: 0.5s;
+    border-radius: 5px;
+}
+
+li > a > div:hover {
+    background-color: #09172a;
+    color: #ffffff;
+}
+
+li > a > div > span{
+    display: block;
+}
+
+.currentPage {
+    background-color: #09172a;
+}
+
+.divLogo {
+    height: 50px;
+    width: 125px;
+}
+
+.divLogo > img {
+    height: 100%;
+    cursor: pointer;
+}
+
+.authentication {
+    width: min-content;
+    display: flex;
+    flex-wrap: nowrap;
+    height: min-content;
+}
+
+button {
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.register {
+    background-color: #15355e;
+    color: #ffffff;
+    padding: 10px 30px;
+    margin-right: 20px;
+}
+
+.register:hover {
+    background-color: #09172a;
+    color: #ffffff;
+}
+
+.login {
+    background-color: #f7db36;
+    color: #15355e;
+    width: 130px;
+    height: 45px;
+}
+
+.headerCorpo {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin: 0px 10%;
+    display: flex;
+    align-items: center;
+}
+
+@media (max-width: 1000px) {
+    nav {
+        display: none;
+    }
+
+    .authentication {
+        display: none;
+    }
+}

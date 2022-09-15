@@ -1,0 +1,19 @@
+<section>
+    <AreaExternaHeader :pagina="Contato"/>
+    <div class="corpo">
+        <h1>Contatos</h1>
+
+        <div v-for="contato in contatos" :key="contato.nome" class="contato">
+            <div class="div-contato">
+                <h3 class="contato-titulo">{{contato.nome}}</h3>
+                
+                <div v-if="contato.endereco" class="contato-email">
+                    <span class="contato-topico">Endereço: </span><span>{{contato.endereco}}</span>
+                </div>
+                <div v-if="contato.email">
+                    <span class="contato-topico">Email: </span><span class="email-puma">{{contato.email}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

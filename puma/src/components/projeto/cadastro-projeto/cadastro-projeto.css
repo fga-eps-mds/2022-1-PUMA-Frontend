@@ -1,0 +1,44 @@
+.main-title {
+  color: #15355E;
+  font-weight: bold;
+  font-size: 40px;
+  text-transform: uppercase;
+}
+
+.form {
+  margin: 5px;
+  background-color: #F2F2F2;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.btn {
+  color: #15355E;
+  align-items: center;
+  background-color: #f7db36;
+  border: 2px solid #f7db36;
+  border-radius: 5px;
+  padding: 2px;
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.5s;
+  width: 160px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.text-description {
+  color:#15355e;
+  font-weight: 700;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.text-example {
+  color:#15355e;
+  font-weight: 700;
+  font-size: 18px;
+  margin-top: 10px;
+}
+

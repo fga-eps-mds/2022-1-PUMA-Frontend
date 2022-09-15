@@ -1,0 +1,21 @@
+<b-modal id="confirm-modal" :visible="isVisible()" @hidden="handleClose()" centered header-class="cm-custom-header"
+    body-class="cm-custom-body" footer-class="cm-custom-footer">
+    <template #modal-header>
+        <div class="cm-custom-title">{{ $store.getters.confirmModal.title }}</div>
+    </template>
+    <p class="my-4">{{ $store.getters.confirmModal.content }}</p>
+    <template #modal-footer>
+        <div class="mx-2">
+            <b-button :variant="$store.getters.confirmModal.cancelButton.variant"
+                @click="$store.getters.confirmModal.cancelButton.onClick" class="cm-custom-button">
+                {{$store.getters.confirmModal.cancelButton.text}}
+            </b-button>
+        </div>
+        <div class="mx-2">
+            <b-button :variant="$store.getters.confirmModal.okButton.variant"
+                @click="$store.getters.confirmModal.okButton.onClick" class="cm-custom-button">
+                {{$store.getters.confirmModal.okButton.text}}
+            </b-button>
+        </div>
+    </template>
+</b-modal>

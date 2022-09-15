@@ -1,0 +1,35 @@
+.main-title {
+    color: #15355E;
+    font-weight: bold;
+    font-size: 40px;
+}
+
+.data-label {
+    font-weight: 700;
+    font-size: 20px;
+    color: #15355E;
+}
+
+.data-content {
+    color: #15355E;   
+    margin-left: 5px;
+    font-size: 18px;
+}
+
+.form-container {
+    background-color: #F2F2F2;
+    border-radius: 5px;
+}
+
+.button {
+    color: #15355E;
+    border-color: #15355E;
+    font-weight: bold;
+    text-transform: uppercase;
+    min-width: 120px;
+}
+
+.button:hover {
+    color: #fff;
+    background-color: #15355E;
+}

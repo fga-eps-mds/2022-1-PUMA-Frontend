@@ -1,0 +1,16 @@
+<b-modal id="loading-modal" :visible="isVisible()" size="sm" centered hide-header hide-footer no-close-on-backdrop>
+    <b-container fluid>
+        <b-row align-h="center">
+            <b-col cols="auto">
+                <b-spinner class="lm-custom-spinner"></b-spinner>
+            </b-col>
+        </b-row>
+        <b-row align-h="center">
+            <b-col cols="auto">
+                <span class="lm-custom-title">
+                    {{$store.getters.loadingModal.title}}
+                </span>
+            </b-col>
+        </b-row>
+    </b-container>
+</b-modal>

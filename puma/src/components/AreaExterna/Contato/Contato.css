@@ -1,0 +1,43 @@
+.corpo {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin: 3% 10%;
+    color: rgba(2, 16, 33, 0.8);
+}
+
+h1 {
+    font-size: 48px;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    margin: 0px;
+    color: rgba(2, 16, 33, 0.8);
+}
+
+.contato-titulo {
+    font-weight: 700;
+    font-size: 32px;
+    letter-spacing: -0.02em;
+    margin-bottom: 15px;
+}
+
+.div-contato {
+    margin-top: 40px;
+}
+
+.contato-email {
+    margin-bottom: 10px;
+}
+
+.contato-topico {
+    font-weight: bold;
+}
+
+.email-puma{
+    color: #15355E;
+    opacity: .7;
+}
+
+.email-puma:hover{
+    opacity: 1;
+    text-decoration: underline;
+    cursor: pointer;
+}

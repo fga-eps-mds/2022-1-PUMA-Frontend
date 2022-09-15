@@ -1,0 +1,13 @@
+<div v-if='hasAccess' v-on:click="props.onclick()" class="item" v-bind:class="{ selected: selected }">
+    <b-container fluid class="h-100">
+        <b-row align-v="center" class="h-100">
+            <div class="item-menu">
+                <img :src="props.iconUrl" draggable="false" width="32" alt="Imagem Menu Lateral">
+
+                <span class="item-title">
+                    {{ props.title }}
+                </span>
+            </div>
+        </b-row>
+    </b-container>
+</div>

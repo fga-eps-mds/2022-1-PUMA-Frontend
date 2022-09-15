@@ -1,0 +1,21 @@
+<section>
+    <AreaExternaHeader :pagina="paginaAtual"/>
+
+    <div class="corpo">
+        <h1>Parceiros e Projetos</h1>
+        <p class="paragrafo-sobre">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas at eleifend ex, in dapibus augue. Nulla dignissim sollicitudin turpis at congue. Clique em um projeto para saber mais informações
+        </p>
+        
+        <div class="icons-parceiros">
+            <div class="icon-parceiro" v-for="(parceiroInfo, index) in infoParceiros">
+                <input type="radio" v-model="parceiro" :value="index" :id="index"/>
+                <label :for="index">
+                    <img :src="parceiroInfo.logo" :alt="parceiroInfo.name">
+                </label>
+            </div>
+        </div>
+        
+        <InfoParceiro v-for="(parceiroInfo, index) in infoParceiros" :key="parceiroInfo.name" v-bind:info="parceiroInfo" v-show="parceiro === index"/>
+    </div>
+</section>

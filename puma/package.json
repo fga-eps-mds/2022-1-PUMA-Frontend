@@ -5,17 +5,38 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "start": "npm run serve"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.1.1",
+    "@fortawesome/fontawesome-svg-core": "^6.1.0",
+    "@fortawesome/free-regular-svg-icons": "^6.1.0",
+    "@fortawesome/free-solid-svg-icons": "^6.1.0",
+    "@fortawesome/vue-fontawesome": "^2.0.6",
+    "@popperjs/core": "^2.11.4",
     "axios": "^0.21.4",
+    "bootstrap": "^4.5.3",
+    "bootstrap-vue": "^2.21.2",
     "core-js": "^3.6.5",
     "dotenv": "^10.0.0",
+    "font-awesome": "^4.7.0",
     "js-cookie": "^3.0.1",
+    "mdbvue": "^6.7.3",
+    "moment": "^2.29.3",
+    "npmm": "^1.0.6",
+    "portal-vue": "^2.1.7",
+    "uuid": "^8.3.2",
+    "v-click-outside": "^3.1.2",
+    "v-mask": "^2.3.0",
+    "vee-validate": "^3.4.14",
     "vue": "^2.6.11",
+    "vue-multiselect": "^2.1.6",
     "vue-router": "^3.2.0",
+    "vue-the-mask": "^0.11.1",
     "vuex": "^3.4.0",
-    "v-click-outside": "^3.1.2"
+    "vuex-persistedstate": "^4.1.0",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",

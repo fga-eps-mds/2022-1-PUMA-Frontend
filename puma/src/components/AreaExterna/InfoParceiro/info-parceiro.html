@@ -1,0 +1,31 @@
+<div>
+  <div class="div-img-descricao">
+    <div class="div-descricao">
+        <h3 class="descricao-titulo">{{info.name}}</h3>
+        <p class="descricao-conteudo" v-for="description in info.description">
+          {{description}}  
+        </p>
+    </div>            
+    <div class="div-img-sobre-oposta">
+        <img :src="info.logo" alt="Logo do Projeto" class="img-sobre-oposta">
+    </div>
+  </div>
+
+  <div class="div-img-descricao">
+    <div class="div-descricao">
+        <h3 class="descricao-titulo">Escopo do Projeto</h3>
+        <p class="descricao-conteudo" v-for="scope in info.projectScope">
+          {{scope}}
+        </p>
+    </div>
+  </div>
+
+  <div class="div-img-descricao">
+    <div class="div-descricao">
+        <h3 class="descricao-titulo">Principais Resultados do Projeto</h3>
+        <p class="descricao-conteudo" v-for="projectKeyResult in info.projectKeyResults">
+          {{projectKeyResult}}
+        </p>
+    </div>
+  </div>
+</div>

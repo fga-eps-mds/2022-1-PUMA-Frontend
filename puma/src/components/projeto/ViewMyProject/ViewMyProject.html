@@ -1,0 +1,174 @@
+<div class="main-content">
+    <b-container fluid class="main-container">
+        <ReturnButton></ReturnButton> 
+        <b-row>
+            <b-col cols="6">
+                <span class="main-title">
+                    VER DETALHES DO PROJETO
+                </span>
+            </b-col>
+            <b-col cols="6">
+                <b-row align-h="end">
+                    <b-col cols="2" v-if="editable && disabled" class="m-2">
+                        <b-button variant="outline-primary" class="button" v-on:click="toggleEnableForm()">
+                            Editar
+                        </b-button>
+                    </b-col>
+                    <b-col cols="2" v-if="!disabled" class="m-2">
+                        <b-button variant="outline-primary" class="button" v-on:click="handleSubmit()">
+                            Salvar
+                        </b-button>
+                    </b-col>
+                    <b-col cols="2" v-if="!disabled" class="m-2">
+                        <b-button variant="outline-primary" class="button" v-on:click="handleCancelEdit()">
+                            Cancelar
+                        </b-button>
+                    </b-col>
+                    <b-col cols="2" v-if="editable" class="m-2">
+                        <b-button variant="outline-primary" class="button" v-on:click="handleDeleteProject()">
+                            Excluir
+                        </b-button>
+                    </b-col>
+                </b-row>
+            </b-col>
+        </b-row>
+        <b-row class="my-2">
+            <b-col cols="8">
+                <span class="data-label">PROJETO:</span>
+                <span class="data-content">{{ form.name }}</span>
+            </b-col>
+            <b-col cols="4">
+                <span class="data-label">CRIADO EM:</span>
+                <span class="data-content">{{ form.createdat}}</span>
+            </b-col>
+        </b-row>
+        <b-row class="my-2">
+            <b-col cols="4">
+                <span class="data-label">STATUS:</span>
+                <span class="data-content">{{ form.statusdesc }}</span>
+            </b-col>
+            <b-col cols="4">
+                <span class="data-label">DISCIPLINA:</span>
+                <span v-if="form.subject" class="data-content">
+                    {{ form.subject.name }}
+                </span>
+                <span v-if="!form.subject" class="data-content">
+                    N/A
+                </span>
+            </b-col>
+            <b-col cols="4">
+                <span class="data-label">SEMESTRE:</span>
+                <span v-if="form.semester" class="data-content">
+                    {{ form.semester.year }}-{{ form.semester.semester }}
+                </span>
+                <span v-if="!form.semester" class="data-content">
+                    N/A
+                </span>
+            </b-col>
+        </b-row>
+        <ValidationObserver ref="observer" v-slot="{invalid}" @submit.prevent="handleSubmit()">
+            <b-row class="my-2 mx-0">
+                <b-col cols="12" class="form-container p-0">
+                    <b-row class="m-3">
+                        <b-col cols="6">
+                            <ValidationProvider vid="name" rules="required" v-slot="{errors}" :bails="false"
+                                name="campo">
+                                <div role="group">
+                                    <label for="name" class="input-label">TÍTULO PARA O PROJETO</label>
+                                    <input id="name" type="text" maxlength="100" class="input-textfield"
+                                        v-model="form.name" :disabled="disabled"
+                                        placeholder="Crie um título que indique o objetivo do projeto"
+                                        v-bind:class="{ 'input-focus': !disabled && !errors.length , 'input-error': errors.length }">
+                                    <span class="input-error-span">{{ errors[0] }}</span>
+                                </div>
+                            </ValidationProvider>
+                            <div class="my-3" />
+                            <ValidationProvider vid="problem" rules="required|min:200" v-slot="{errors}" :bails="false"
+                                name="campo">
+                                <div role="group">
+                                    <label for="problem" class="input-label">PROBLEMA ENFRENTADO</label>
+                                    <textarea id="problem" :disabled="disabled" maxlength="1000" rows="6"
+                                        v-model="form.problem" class="input-textarea"
+                                        placeholder="Descreva o desafio enfrentado usando, no mínimo, 200 caracteres."
+                                        v-bind:class="{ 'input-focus': !disabled && !errors.length , 'input-error': errors.length }">
+                                    </textarea>
+                                    <span class="input-counter">({{form.problem.length}}/1000)</span>
+                                    <span class="input-error-span">{{ errors[0] }}</span>
+                                </div>
+                            </ValidationProvider>
+                            <div class="my-3" />
+                            <ValidationProvider vid="results" rules="required|min:40" v-slot="{errors}" :bails="false"
+                                name="campo">
+                                <div role="group">
+                                    <label for="results" class="input-label">RESULTADOS DESEJADOS</label>
+                                    <textarea id="results" rows="6" minlength="40" maxlength="1000"
+                                        v-model="form.expectedresult" :disabled="disabled" class="input-textarea"
+                                        placeholder="Descreva os resultados desejados"
+                                        v-bind:class="{ 'input-focus': !disabled && !errors.length , 'input-error': errors.length }">
+                                    </textarea>
+                                    <span class="input-counter">({{form.expectedresult.length}}/1000)</span>
+                                    <span class="input-error-span">{{ errors[0] }}</span>
+                                </div>
+                            </ValidationProvider>
+                            <div class="my-3" />
+                            <ValidationProvider vid="keywords" rules="required" v-slot="{errors}">
+                                <div role="group">
+                                    <label for="keywords" class="input-label">PALAVRAS-CHAVE</label>
+                                    <multiselect id="keywords" v-model="form.selectedKeywords" :options="keywords"
+                                        :disabled="disabled" :multiple="true" track-by="value" label="text"
+                                        :searchable="true" :showLabels="true" :max="3" :closeOnSelect="false"
+                                        tagPosition="bottom" selectLabel="" deselectLabel="" selectedLabel=""
+                                        placeholder="Pesquise ou selecione uma palavra-chave" class="input-multiselect"
+                                        :class="errors.length ? 'input-multiselect-error' : 'input-multiselect-focus'"
+                                        @input="handleChangeKeywords">
+                                        <template slot="option" slot-scope="scope">
+                                            <div class="option__desc checkbox-label">
+                                                <input class="mx-2" type="checkbox" :checked="isChecked(scope.option)"
+                                                    @focus.prevent :key="scope.option.value" />
+                                                <span class="option__title">{{ scope.option.text }}</span>
+                                            </div>
+                                        </template>
+                                        <span slot="maxElements">
+                                            Máximo de 3 opções selecionadas. Remova ao menos uma palavra-chave.
+                                        </span>
+                                        <span slot="noResult">
+                                            Nenhuma palavra-chave encontrada.
+                                        </span>
+                                    </multiselect>
+                                    <span class="input-error-span">
+                                        {{ errors[0] && 'Escolha no mínimo uma palavra-chave'}}
+                                    </span>
+                                </div>
+                            </ValidationProvider>
+                            <div class="my-3" />
+                            <ValidationProvider vid="main-keyword" rules="required" v-slot="{errors}">
+                                <div role="group">
+                                    <label for="main-keyword" class="input-label">PALAVRA-CHAVE PRINCIPAL</label>
+                                    <multiselect id="mainKeyword" v-model="form.mainKeyword" :disabled="disabled"
+                                        :options="form.selectedKeywords" :multiple="false" track-by="value" label="text"
+                                        :searchable="true" :showLabels="true" tagPosition="bottom" selectLabel=""
+                                        deselectLabel="" selectedLabel="" placeholder="Selecione uma palavra-chave"
+                                        class="input-multiselect"
+                                        :class="errors.length ? 'input-multiselect-error' : 'input-multiselect-focus'">
+                                        <span slot="noResult">
+                                            Nenhuma palavra-chave encontrada.
+                                        </span>
+                                    </multiselect>
+                                    <span class="input-error-span">{{ errors[0] }}</span>
+                                </div>
+                            </ValidationProvider>
+                        </b-col>
+                        <b-col cols="6" v-if="hasFeedback()">
+                            <div role="group">
+                                <label for="feedback" class="input-label">FEEDBACK DA AVALIAÇÃO</label>
+                                <textarea id="feedback" :disabled="true" v-model="form.feedback" rows="6"
+                                    maxlength="1000" class="input-textarea">
+                                </textarea>
+                            </div>
+                        </b-col>
+                    </b-row>
+                </b-col>
+            </b-row>
+        </ValidationObserver>
+    </b-container>
+</div>

@@ -1,0 +1,259 @@
+<div class="main-content">
+    <b-container fluid class="main-container">
+        <ReturnButton></ReturnButton> 
+        <b-row>
+            <b-col cols="6">
+                <span class="main-title">
+                    VER DETALHES DO PROJETO
+                </span>
+            </b-col>
+            <b-col cols="5">
+                <b-row align-h="end">
+                    <b-col cols="4 m-4" v-if="editable && disabled">
+                        <b-button variant="outline-primary" class="button" v-on:click="handleEvaluate()">
+                            Avaliar
+                        </b-button>
+                    </b-col>
+                    <b-col cols="4 m-4" v-if="!disabled" >
+                        <b-button variant="outline-primary" class="button" v-on:click="handleSubmit()">
+                            Enviar
+                        </b-button>
+                    </b-col>
+                    <b-col cols="4 m-4" v-if="!disabled" >
+                        <b-button variant="outline-primary" class="button" v-on:click="handleCancelEvaluate()">
+                            Cancelar
+                        </b-button>
+                    </b-col>
+                </b-row>
+            </b-col>
+        </b-row>
+        <b-row class="my-2">
+            <b-col cols="8">
+                <span class="data-label">PROJETO:</span>
+                <span class="data-content">{{ form.name }}</span>
+            </b-col>
+            <b-col cols="4">
+                <span class="data-label">CRIADO EM:</span>
+                <span class="data-content">{{ form.createdat}}</span>
+            </b-col>
+        </b-row>
+        <b-row class="my-2">
+            <b-col cols="4">
+                <span class="data-label">AUTOR(A):</span>
+                <span class="data-content">{{ form.user.fullname }}</span>
+            </b-col>
+            <b-col cols="4">
+                <span class="data-label">TELEFONE:</span>
+                <span class="data-content">{{ form.user.phonenumber }}</span>
+            </b-col>
+            <b-col cols="4">
+                <span class="data-label">E-MAIL:</span>
+                <span class="data-content">{{ form.user.email }}</span>
+            </b-col>
+        </b-row>
+        <b-row class="my-2">
+            <b-col cols="4">
+                <span class="data-label">STATUS:</span>
+                <span class="data-content">{{ form.statusdesc }}</span>
+            </b-col>
+            <b-col cols="4">
+                <span class="data-label">DISCIPLINA:</span>
+                <span v-if="form.subject" class="data-content">
+                    {{ form.subject.name }}
+                </span>
+                <span v-if="!form.subject" class="data-content">
+                    N/A
+                </span>
+            </b-col>
+            <b-col cols="4">
+                <span class="data-label">SEMESTRE:</span>
+                <span v-if="form.semester" class="data-content">
+                    {{ form.semester.year }}-{{ form.semester.semester }}
+                </span>
+                <span v-if="!form.semester" class="data-content">
+                    N/A
+                </span>
+            </b-col>
+        </b-row>
+        <ValidationObserver ref="observer" v-slot="{invalid}" @submit.prevent="handleSubmit()">
+            <b-row class="my-2 mx-0">
+                <b-col cols="12" class="form-container p-0">
+                    <b-row class="m-3">
+                        <b-col cols="6">
+                            <div role="group">
+                                <label for="name" class="input-label">TÍTULO PARA O PROJETO</label>
+                                <input id="name" type="text" maxlength="100" class="input-textfield" :disabled="true"
+                                    placeholder="Crie um título que indique o objetivo do projeto" v-model="form.name">
+                            </div>
+                            <div class="my-3" />
+                            <div role="group">
+                                <label for="problem" class="input-label">PROBLEMA ENFRENTADO</label>
+                                <textarea id="problem"
+                                    placeholder="Descreva o desafio enfrentado usando, no mínimo, 200 caracteres."
+                                    maxlength="1000" rows="6" v-model="form.problem" class="input-textarea"
+                                    :disabled="true">
+                              </textarea>
+                                <span class="input-counter">({{form.problem.length}}/1000)</span>
+                            </div>
+                            <div class="my-3" />
+                            <div role="group">
+                                <label for="results" class="input-label">RESULTADOS DESEJADOS</label>
+                                <textarea id="results" placeholder="Descreva os resultados desejados" rows="6"
+                                    minlength="40" maxlength="1000" v-model="form.expectedresult" :disabled="true"
+                                    class="input-textarea"></textarea>
+                                <span class="input-counter">({{form.expectedresult.length}}/1000)</span>
+                            </div>
+                            <div class="my-3" />
+                            <div role="group">
+                                <label for="keywords" class="input-label">PALAVRAS-CHAVE</label>
+                                <multiselect id="keywords" v-model="form.selectedKeywords" :options="keywords"
+                                    :disabled="true" :multiple="true" track-by="value" label="text" :searchable="true"
+                                    :showLabels="true" :max="3" :closeOnSelect="false" tagPosition="bottom"
+                                    selectLabel="" deselectLabel="" selectedLabel=""
+                                    placeholder="Pesquise ou selecione uma palavra-chave" class="input-multiselect">
+                                    <template slot="option" slot-scope="scope">
+                                        <div class="option__desc checkbox-label">
+                                            <input class="mx-2" type="checkbox" :checked="isChecked(scope.option)"
+                                                @focus.prevent :key="scope.option.value" />
+                                            <span class="option__title">{{ scope.option.text }}</span>
+                                        </div>
+                                    </template>
+                                    <span slot="maxElements">
+                                        Máximo de 3 opções selecionadas. Remova ao menos uma palavra-chave.
+                                    </span>
+                                    <span slot="noResult">
+                                        Nenhuma palavra-chave encontrada.
+                                    </span>
+                                </multiselect>
+                            </div>
+                            <div class="my-3" />
+                            <div role="group">
+                                <label for="main-keyword" class="input-label">PALAVRA-CHAVE PRINCIPAL</label>
+                                <multiselect id="main-keyword" v-model="form.mainKeyword"
+                                    :options="form.selectedKeywords" :multiple="false" :disabled="true" track-by="value"
+                                    label="text" :searchable="true" :showLabels="true" tagPosition="bottom"
+                                    selectLabel="" deselectLabel="" selectedLabel=""
+                                    placeholder="Selecione uma palavra-chave" class="input-multiselect">
+                                </multiselect>
+                            </div>
+                        </b-col>
+                        <b-col cols="6">
+                            <div v-if="hasFeedback() && disabled" role="group">
+                                <label for="feedback" class="input-label">FEEDBACK DA ÚLTIMA AVALIAÇÃO</label>
+                                <textarea id="feedback" :disabled="true" v-model="form.feedback" rows="6"
+                                    maxlength="1000" class="input-textarea">
+                                    </textarea>
+                                <span class="input-counter">({{form.feedback.length}}/1000)</span>
+                            </div>
+                            <div v-if="!disabled" role="group">
+                                <ValidationProvider vid="evaluation" rules="required" v-slot="{errors}" :bails="false"
+                                    name="campo">
+                                    <label for="evaluation" class="input-label">ANÁLISE DA PROPOSTA DE PROJETO</label>
+                                    <multiselect id="evaluation" v-model="form.selectedEvaluation"
+                                        :options="evaluations" :multiple="false" :disabled="disabled" track-by="value"
+                                        label="text" :searchable="true" :showLabels="true" tagPosition="bottom"
+                                        selectLabel="" deselectLabel="" selectedLabel=""
+                                        placeholder="Selecione uma avaliação" @input="handleChangeEvaluation()"
+                                        class="input-multiselect"
+                                        :class="errors.length ? 'input-multiselect-error' : 'input-multiselect-focus'">
+                                        <span slot="noResult">
+                                            Nenhuma opção encontrada.
+                                        </span>
+                                    </multiselect>
+                                    <span class="input-error-span">{{ errors[0] }}</span>
+                                </ValidationProvider>
+                            </div>
+                            <div v-if="!disabled && form.selectedEvaluation && form.selectedEvaluation.value === 0"
+                                role="group">
+                                <div class="my-3" />
+                                <ValidationProvider vid="feedback" :rules="{required: true, min: 10}" v-slot="{errors}" :bails="false"
+                                    name="campo">
+                                    <label for="feedback" class="input-label">
+                                        FEEDBACK PARA AUTOR DA PROPOSTA DE PROJETO
+                                    </label>
+                                    <textarea id="feedback" :disabled="disabled" v-model="form.feedback" rows="6"
+                                        maxlength="1000" class="input-textarea"
+                                        placeholder="Escreva o motivo da aprovação da proposta..."
+                                        v-bind:class="{ 'input-focus': !errors.length , 'input-error': errors.length }">
+                                    </textarea>
+                                    <span class="input-counter">({{form.feedback.length}}/1000)</span>
+                                    <span class="input-error-span">{{ errors[0] }}</span>
+                                </ValidationProvider>
+                            </div>
+                            <div v-if="!disabled && form.selectedEvaluation && form.selectedEvaluation.value === 1"
+                                role="group">
+                                <div class="my-3" />
+                                <ValidationProvider vid="feedback" :rules="{required: true, min: 10}" v-slot="{errors}" :bails="false"
+                                    name="campo">
+                                    <label for="feedback" class="input-label">MOTIVO DA REJEIÇÃO DA PROPOSTA</label>
+                                    <textarea id="feedback" :disabled="disabled" v-model="form.feedback" rows="6"
+                                        maxlength="1000" class="input-textarea"
+                                        placeholder="Escreva o motivo da rejeição da proposta..."
+                                        v-bind:class="{ 'input-focus': !errors.length , 'input-error': errors.length }">
+                                    </textarea>
+                                    <span class="input-counter">({{form.feedback.length}}/1000)</span>
+                                    <span class="input-error-span">{{ errors[0] }}</span>
+                                </ValidationProvider>
+                            </div>
+                            <div v-if="!disabled && form.selectedEvaluation && form.selectedEvaluation.value === 2"
+                                role="group">
+                                <div class="my-3" />
+                                <ValidationProvider vid="subject" :rules="{required: true, min: 10}" v-slot="{errors}" :bails="false"
+                                    name="campo">
+                                    <label for="subject" class="input-label">
+                                        ESCOLHA DA DISCIPLINA PARA ENVIAR A PROPOSTA
+                                    </label>
+                                    <multiselect id="subject" v-model="form.selectedSubject" :options="subjects"
+                                        :multiple="false" :disabled="disabled" track-by="value" label="text"
+                                        :searchable="true" :showLabels="true" tagPosition="bottom" selectLabel=""
+                                        deselectLabel="" selectedLabel="" placeholder="Selecione uma disciplina"
+                                        class="input-multiselect"
+                                        :class="errors.length ? 'input-multiselect-error' : 'input-multiselect-focus'">
+                                        <span slot="noResult">
+                                            Nenhuma opção encontrada.
+                                        </span>
+                                    </multiselect>
+                                    <span class="input-error-span">{{ errors[0] }}</span>
+                                </ValidationProvider>
+                            </div>
+                            <div v-if="!disabled && form.selectedEvaluation && form.selectedEvaluation.value === 2"
+                                role="group">
+                                <div class="my-3" />
+                                <ValidationProvider vid="feedback" :rules="{required: true, min: 10}" v-slot="{errors}" :bails="false"
+                                    name="campo">
+                                    <label for="feedback" class="input-label">
+                                        MOTIVO DO ENCAMINHAMENTO DA PROPOSTA
+                                    </label>
+                                    <textarea id="feedback" :disabled="disabled" v-model="form.feedback" rows="6"
+                                        maxlength="1000" class="input-textarea"
+                                        v-bind:class="{ 'input-focus': !errors.length , 'input-error': errors.length }"
+                                        placeholder="Escreva o motivo do encaminhamento da proposta, seja por dúvida de qual disciplina escolher ou outra razão...">
+                                    </textarea>
+                                    <span class="input-counter">({{form.feedback.length}}/1000)</span>
+                                    <span class="input-error-span">{{ errors[0] }}</span>
+                                </ValidationProvider>
+                            </div>
+                            <div v-if="!disabled && form.selectedEvaluation && form.selectedEvaluation.value === 3"
+                                role="group">
+                                <div class="my-3" />
+                                <ValidationProvider vid="feedback" :rules="{required: true, min: 10}" v-slot="{errors}" :bails="false"
+                                    name="campo">
+                                    <label for="feedback" class="input-label">
+                                        MOTIVO DO ENCAMINHAMENTO DA PROPOSTA
+                                    </label>
+                                    <textarea id="feedback" :disabled="disabled" v-model="form.feedback" rows="6"
+                                        maxlength="1000" class="input-textarea"
+                                        v-bind:class="{ 'input-focus': !errors.length , 'input-error': errors.length }"
+                                        placeholder="Escreva o motivo do encaminhamento da proposta, seja por dúvida de qual disciplina escolher ou outra razão...">
+                                    </textarea>
+                                    <span class="input-counter">({{form.feedback.length}}/1000)</span>
+                                    <span class="input-error-span">{{ errors[0] }}</span>
+                                </ValidationProvider>
+                            </div>
+                        </b-col>
+                    </b-row>
+                </b-col>
+            </b-row>
+        </ValidationObserver>
+    </b-container>
+</div>

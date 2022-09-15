@@ -1,0 +1,44 @@
+.visitor-nav {
+    display: flex;
+    margin: 0px 30px;
+}
+
+.visitor-nav > div{
+    flex:1;
+}
+
+.div-logo {
+    font-weight: bold;
+    align-items: center;
+    text-align: center;
+}
+
+.nav-navegacao {
+    text-align: center;
+    font-size: 20px;
+    color: #15355E;
+    font-weight: bold;
+}
+
+.itens > span {
+    cursor: pointer;
+    margin: 5px;
+}
+
+.choice-item:hover {
+    color: #6E97CC;
+}
+
+@media only screen and (max-width:600px) {
+    .visitor-nav {
+        flex-direction: column;
+    }
+
+    .div-logo {
+        margin-bottom: 20px;
+    }
+
+    .nav-navegacao {
+        font-size: 16px;
+    }
+}

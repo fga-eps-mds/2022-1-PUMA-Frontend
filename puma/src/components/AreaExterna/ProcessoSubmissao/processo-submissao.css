@@ -1,0 +1,111 @@
+.corpo {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin: 3% 10%;
+    color: rgba(2, 16, 33, 0.8);
+}
+
+h1 {
+    font-size: 48px;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    margin: 0px;
+    color: rgba(2, 16, 33, 0.8);
+}
+
+.paragrafo-submissao {
+    text-align: justify;
+    letter-spacing: 0.08em;
+    font-size: 24px;
+    font-weight: 400;
+    margin: 40px 0px 80px 0px;
+}
+
+.necessario-titulo {
+    font-weight: 700;
+    font-size: 32px;
+    letter-spacing: -0.02em;
+    margin-bottom: 15px;
+}
+
+.p-submissao-ul {
+    width: 100%;
+    margin: 0;
+    list-style: inside;
+    display: block;
+    align-items: flex-start;
+    padding-left: 20px;
+}
+
+.p-submissao-li {
+    margin: 0px 0px 10px 0px;
+    width: 100%;
+}
+
+.informacao-titulo {
+    font-weight: 700;
+    font-size: 32px;
+    letter-spacing: -0.02em;
+    margin-bottom: 15px;
+}
+
+.p-informacao-ul {
+    width: 100%;
+    margin: 0;
+    list-style: inside;
+    display: block;
+    align-items: flex-start;
+    padding-left: 20px;
+}
+
+.p-informacao-li {
+    margin: 0px 0px 10px 0px;
+    width: 100%;
+}
+
+.p-informacao {
+    margin: 0px 0px 10px 0px;
+    width: 100%;
+}
+
+.div-informacao {
+    margin-top: 60px;
+}
+
+.como-titulo {
+    font-weight: 700;
+    font-size: 32px;
+    letter-spacing: -0.02em;
+    margin-bottom: 15px;
+}
+
+.p-como-ul {
+    width: 100%;
+    margin: 0;
+    list-style: inside;
+    display: block;
+    align-items: flex-start;
+}
+
+.p-como {
+    margin: 0px 0px 10px 0px;
+    width: 100%;
+    padding-bottom: 40px;
+}
+
+.div-como {
+    margin-top: 60px;
+}
+
+.div-acessar {
+    width: min-content;
+    display: flex;
+    flex-wrap: nowrap;
+    height: min-content;
+}
+
+.button-acessar {
+    background-color: #f7db36;
+    color: #15355e;
+    width: 200px;
+    height: 45px;
+}

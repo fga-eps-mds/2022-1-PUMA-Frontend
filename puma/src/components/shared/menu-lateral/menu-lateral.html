@@ -1,0 +1,72 @@
+<div class="">
+  <div class="menu-padrao root">
+    <div class="logo">
+      <b-container fluid class="h-100">
+        <b-row align-v="center" align-h="center" class="h-100">
+          <img @click="redirectToUserProjects" src="../../../assets/logo-white.svg"
+            draggable="false" alt="Logo da Plataforma PUMA">
+        </b-row>
+      </b-container>
+    </div>
+    <div class="menu-container">
+      <b-container fluid class="h-100">
+        <b-row align-v="start" align-h="center" class="h-100">
+          <b-col cols="12">
+            <b-row class="m-4" />
+            <b-row align-h="center">
+              <ItemMenuLateral :props="menuItems.subjects" />
+            </b-row>
+            <b-row align-h="center">
+              <ItemMenuLateral :props="menuItems.keywords" />
+            </b-row>
+            <b-row align-h="center">
+              <ItemMenuLateral :props="menuItems.subjectProjects" />
+            </b-row>
+            <b-row align-h="center">
+              <ItemMenuLateral :props="menuItems.adminProjects" />
+            </b-row>
+            <b-row align-h="center">
+              <ItemMenuLateral :props="menuItems.myProjects" />
+            </b-row>
+            <b-row align-h="center">
+              <ItemMenuLateral :props="menuItems.logout" />
+            </b-row>
+          </b-col>
+        </b-row>
+      </b-container>
+    </div>
+  </div>
+  <div class="menu-hamburger">
+    <div class="topo">
+      <img @click="redirectToUserProjects" src="../../../assets/logo-white.svg" draggable="false"
+        alt="Logo da Plataforma PUMA">
+      <img src="../../../assets/menu-white.svg" class="navbar-icon" @click="showMenuHamburger('menu')"
+        alt="Imagem interativa para visualização ou ocultação do Menu">
+    </div>
+  
+    <div id="menu">
+      <ul>
+        <li>
+          <ItemMenuLateral :props="menuItems.subjects" />
+        </li>
+        <li>
+          <ItemMenuLateral :props="menuItems.keywords" />
+        </li>
+        <li>
+          <ItemMenuLateral :props="menuItems.subjectProjects" />
+        </li>
+        <li>
+          <ItemMenuLateral :props="menuItems.adminProjects" />
+        </li>
+        <li>
+          <ItemMenuLateral :props="menuItems.myProjects" />
+        </li>
+        <li>
+          <ItemMenuLateral :props="menuItems.logout" />
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+

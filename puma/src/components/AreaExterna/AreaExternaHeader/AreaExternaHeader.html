@@ -1,0 +1,30 @@
+<header>
+    <div class="headerCorpo">
+        <div class="divLogo">
+            <img src="../../../assets/logo-unb.png" alt="Logo da Plataforma PUMA" onclick="window.location='/'">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="/home/sobre"><div v-bind:class="{ currentPage: '/home/sobre' === pagina}">
+                    <span>Sobre</span>
+                    <span>a Puma</span>
+                </div></a></li>
+                <li><a href="/home/disciplinas"><div v-bind:class="{ currentPage: '/home/disciplinas' === pagina}">
+                    <span>Disciplinas</span>
+                    <span>de Projeto</span>
+                </div></a></li>
+                <li><a href="/home/parceiros"><div v-bind:class="{ currentPage: '/home/parceiros' === pagina}">
+                    <span>Parceiros</span>
+                    <span>e Projetos</span>
+                </div></a></li>
+                <li class="ultimoLi"><a href="/Contato"><div v-bind:class="{ currentPage: '/Contato' === pagina}">
+                    <span>Contato</span>
+                </div></a></li>
+            </ul>
+        </nav>
+
+        <div class="authentication">
+            <button class="login" onclick="window.location='/login'">Entrar</button>
+        </div>
+    </div>
+</header>

@@ -1,0 +1,29 @@
+<section>
+    <div v-if="loading" class="loading"></div>
+    <div v-else>
+        <div class="div-img-descricao">
+            <div class="div-img-sobre">
+                <img src="../../../../assets/imagemTemporaria.png" class="img-sobre" alt="Imagem da Disciplina">
+            </div>
+            <div class="div-descricao">
+                <h3 class="descricao-titulo">{{disciplina.subject.name}}</h3>
+                <p class="descricao-conteudo">
+                    {{disciplina.subject.coursesyllabus}}
+                </p>
+            </div>
+        </div>
+
+        <div class="div-img-descricao">
+            <div class="div-descricao">
+                <h3 class="descricao-titulo">Temas</h3>
+                <p class="descricao-conteudo">
+                    <span v-for="keyword in disciplina.keywords" :key="keyword.keywordid">
+                        {{keyword.keyword}},
+                    </span>
+
+                    <span v-if="disciplina.keywords.length == 0">Sem Temas Cadastados</span>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>

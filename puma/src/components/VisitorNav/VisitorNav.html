@@ -1,0 +1,17 @@
+<div class="visitor-nav">
+    <div class='div-logo'>
+        <img v-on:click='$router.push({ name: `Home Page` })' id='logo' src='../../assets/navbarLogo.svg' alt='PUMA' />
+    </div>
+
+    <div class="nav-navegacao">
+        <span class="itens" v-for="(nav, i) in navs" :key="nav.name">
+            <span v-if="i === navs.length - 1" class="choice-item"
+            @click="goToPage(nav.title)">{{ nav.title }}</span>
+            <span v-if="i !== navs.length - 1" class="choice-item"
+            @click="goToPage(nav.title)">{{ nav.title }}</span>
+            <span v-if="i !== navs.length - 1">></span>
+        </span>
+    </div>
+
+    <div></div>
+</div>

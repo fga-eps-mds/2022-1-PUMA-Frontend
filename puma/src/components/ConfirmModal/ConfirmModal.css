@@ -1,0 +1,25 @@
+.cm-custom-title {
+    text-align: center;
+    width: 100%;
+    color: white;
+    font-size: 20px;
+    font-weight: bold; 
+}
+
+.cm-custom-header {
+    background-color: #15355E;
+    padding: 0.6rem;
+}
+
+.cm-custom-body {
+    text-align: center;
+    font-size: 18px;
+}
+
+.cm-custom-footer {
+    justify-content: center;
+}
+
+.cm-custom-button {
+    font-weight: bold; 
+}

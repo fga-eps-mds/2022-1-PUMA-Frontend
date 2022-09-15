@@ -1,0 +1,52 @@
+.tabela {
+    width: 100%;
+    display: flex;
+    max-width: 1000px;
+    margin-bottom: 40px;
+    align-items: unset;
+}
+
+.loading {
+    animation: is-rotating 0.5s infinite;
+    border: 6px solid #e5e5e5;
+    border-radius: 50%;
+    border-top-color: #15355e;
+    height: 50px;
+    width: 50px;
+    margin: auto;
+}
+
+.item-tabela {
+    flex: 1;
+    margin: 0;
+    text-align: center;
+    cursor: pointer;
+    padding: 10px;
+    border: 1px solid #15355e;
+}
+
+.item-tabela:first-child { 
+    background-color: #15355e;
+    color: #ffffff;
+}
+
+.erro-lista-disciplina {
+    color: red;
+    font-size: 20px;
+}
+
+@media (max-width: 700px) {
+    .tabela {
+        flex-direction: column;
+    }
+
+    .item-tabela {
+        width: 100%;
+    }
+}
+  
+@keyframes is-rotating {
+    to {
+        transform: rotate(1turn);
+    }
+}

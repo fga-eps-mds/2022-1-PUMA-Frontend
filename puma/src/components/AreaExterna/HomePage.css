@@ -1,0 +1,17 @@
+section {
+    background-color: blue;
+    width: 100%;
+    height: auto;
+}
+
+.area-externa-section {
+    height: 100%;
+    width: 100%;
+    padding: 0 150px;
+}
+
+@media (max-width: 700px) {
+  .area-externa-section {
+    margin: 0 40px;
+  }
+}

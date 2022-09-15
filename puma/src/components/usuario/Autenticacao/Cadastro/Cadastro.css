@@ -1,0 +1,214 @@
+.root {
+  background-color: white;
+  height: 100%;
+}
+
+.div-visitor-nav {
+  height: 10%;
+  padding-top: 30px;
+}
+
+.div-form {
+  height: 90%;
+}
+
+.border-card {
+  border: 1px solid #15355E;
+  border-radius: 0px 0px 16px 16px;
+}
+
+.card {
+  background-color: #ffffff;
+  border-radius: 20px;
+  max-height: 80%;
+  margin: 20px;
+  padding: 1px;
+  width: 725px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  border: none;
+  min-width: 500px;
+}
+
+.title-box {
+  font-size: 20px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  background: rgba(21,53,94,1);
+  padding: 10px;
+  font-weight: bold;
+  color: white;
+}
+
+#register-form {
+  display: flex;
+  flex-direction: column;
+}
+
+select:required:invalid {
+  color: gray;
+}
+
+option[value=""][disabled] {
+  display: none;
+}
+
+option {
+  color: black;
+}
+
+.loading {
+  font-size: 16px;
+  margin: 0 auto;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.submit-btn {
+  align-items: center;
+  background-color: #15355e;
+  color: #ffffff;
+  border: none;
+  border-radius: 7px;
+  padding: 5px;
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0 auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  cursor: pointer;
+  transition: 0.5s;
+  width: 196.7px;
+  letter-spacing: 0.03em;
+}
+
+.submit-btn:hover {
+  background-color: #6E97CC;
+}
+
+a {
+  color: black;
+  text-decoration: none; /* no underline */
+}
+
+.invalid {
+  border: 1px solid #EB0600;
+}
+
+.error-span {
+  display: flex;
+  margin-top: 10px;
+  text-align: left;
+  flex-direction: column;
+  margin-left: 70px;
+  color: #EB0600;
+}
+
+label{
+  color: rgba(21,53,94,1);
+  text-align: left;
+  flex-direction: column;
+  margin-left: 70px;
+  margin-top: 30px;
+  margin-bottom: -20px;
+  font-weight: bold;
+  float: left;
+}
+
+.error-div {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.password-img {
+  position: absolute;
+  margin-top: -40px;
+  margin-left: 605px;
+  cursor: pointer;
+}
+
+label.required::after {
+  content: "*";
+  color: rgba(21,53,94,1);
+  font-weight: bolder;
+}
+
+.label-repeat-password {
+  margin-top: 20px;
+}
+
+.password-div {
+  align-items: center;
+  border: 1px solid #15355e;
+  border-radius: 7px;
+  font-size: 14px;
+  margin-top: 25px;
+  padding: 15px;
+  margin-left: 70px;
+  margin-right: 70px;
+  display: flex;
+}
+
+.password-input {
+  flex: 1;
+  border: none;
+}
+
+.password-input:focus {
+  outline: 0;
+}
+
+.eye-option {
+  cursor: pointer;
+}
+
+.div-troca-pagina {
+  margin: 20px 0px;
+  width: 100%;
+  padding: 0px 50px;
+}
+
+@media only screen and (max-width:1000px) {
+  .image-page-cadastro {
+      display: none;
+  }
+}
+
+@media only screen and (max-width:600px) {
+  .title-box {
+      background-color: #ffffff;
+      color: #15355E;
+  }
+
+  .card {
+    min-width: unset;
+    margin: 20px 0px;
+  }
+
+  .border-card {
+      border: none;
+  }
+
+  .row-centro {
+      width: 100%;
+      flex: none;
+      max-width: none;
+  }
+
+  .div-visitor-nav {
+      height: auto;
+      margin-bottom: 20px;
+  }
+
+  .div-form {
+      height: auto;
+  }
+
+  .submit-btn {
+      margin-top: 60px;
+  }
+}

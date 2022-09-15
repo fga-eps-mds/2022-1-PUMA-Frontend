@@ -1,0 +1,39 @@
+<div class="main-content hidden-scroll-bar">
+    <div class="title ml-4">
+      {{
+        operacao === 'meus-projetos' ?
+          'Meus Projetos' : (operacao === 'projetos' ? 'Projetos' : 'Projetos das Disciplinas')
+      }}
+    </div>
+
+    <div v-if="projects.length" class="title sub-title ml-4 mb-4">
+      {{
+        'Projetos ' + (operacao === 'meus-projetos' ?
+          'cadastrados pelo usuário' : (operacao === 'projetos' ?
+            'cadastrados na plataforma' : 'alocados para as disciplinas ministradas pelo usuário'))
+      }}
+    </div>
+
+    <div class="ml-4 input-group">
+        <input
+            v-model="projectSearch"
+            type="text"
+            id="caixaPesquisa"
+            class="search-input"
+            placeholder="Pesquise por uma disciplina">
+        <em class="fas fa-search input-group-prepend search-icon"></em>
+    </div>
+    
+    <div v-if="operacao === 'meus-projetos'">
+        <button
+            class="btn cd-btn ml-4 my-3"
+            onclick="window.location.href = '/disciplinas/cadastrar'">
+            <em class="fa-solid fa-plus-square mr-2 add-project"></em>Criar Projeto
+        </button>
+    </div>
+
+    <ListaConsultaProjeto
+        :operacao="operacao"
+        :dataProjects="projects"
+        :projectSearch="projectSearch"/>
+</div>

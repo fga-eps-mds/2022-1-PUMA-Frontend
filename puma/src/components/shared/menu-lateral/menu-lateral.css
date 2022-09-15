@@ -1,0 +1,74 @@
+.root {
+    width: 250px;
+    height: 100vh;
+    background-color: #15355E;
+    display: inline-block;
+    position: fixed;
+}
+
+.logo {
+    height: 10%;
+}
+
+img {
+    cursor: pointer;
+}
+
+.menu-container {
+    height: 90%;
+}
+
+.menu-hamburger {
+    background-color: #15355E;
+    text-align: start;
+    position: fixed top;
+    min-width: 350px;
+}
+
+ul {
+    padding: 0px;
+}
+
+.menu-hamburger li {
+    text-align: left;
+    list-style: none;
+    padding: none;
+}
+
+.menu-hamburger img {
+    margin: 1.5em 0;
+}
+
+#menu {
+    display: none;
+}
+
+.navbar-icon {
+    max-width: 100%;
+    height: 20px;
+}
+
+.topo {
+    justify-content: space-between;
+    display: flex;
+    margin: 0px 26px;
+}
+
+.topo img {
+    height: 20px;
+}
+
+@media screen and (min-width: 800px) {
+    .menu-hamburger {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .menu-padrao {
+        display: none;
+    }
+    .root {
+        min-width: 350px;
+    }
+}

@@ -1,30 +1,36 @@
-  <template>
-  <div id="app">
-  <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,600,700,900" rel="stylesheet">
-    <Navbar v-if='isloggedIn'/>
+<template>
+  <div id='app'>
+    <link
+      href='https://fonts.googleapis.com/css?family=Rubik:300,400,500,600,700,900'
+      rel='stylesheet'
+    />
+    <MenuLateral v-if='isAuthenticated' />
+    <ConfirmModal />
+    <LoadingModal />
     <router-view />
   </div>
 </template>
 
 <script>
-// eslint-disable-next-line import/no-unresolved
-import Navbar from '@/components/Navbar.vue';
-import UserService from './services/userService';
-
-const userService = new UserService();
+/* eslint-disable */
+import ConfirmModal from '@/components/ConfirmModal/ConfirmModal.vue';
+import LoadingModal from '@/components/LoadingModal/LoadingModal.vue';
+import MenuLateral from './components/shared/menu-lateral/MenuLateral.vue';
 
 export default {
   components: {
-    Navbar,
+    MenuLateral,
+    ConfirmModal,
+    LoadingModal,
   },
   methods: {
     updateSessionStatus() {
-      this.isloggedIn = userService.isUserLoggedIn();
+      this.isAuthenticated = this.$store.getters.isAuthenticated;
     },
   },
   data() {
     return {
-      isloggedIn: false,
+      isAuthenticated: false,
     };
   },
   created() {
@@ -33,61 +39,74 @@ export default {
   updated() {
     this.updateSessionStatus();
   },
+  mounted() {
+    document.title = 'PUMA';
+  },
 };
 </script>
 
 <style>
-body {
+/* GLOBAL CSS */
+html, body {
   margin: 0;
+  height: 100%;
 }
 
 #app {
   font-family: Avenir, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+  height:100%;
+}
+
+.main-content {
+  display: block;
+  position: absolute;
+  top: 0;
+  width: calc(100% - 250px);
+  margin-left: 250px;
+  padding: 30px 10px;
+  margin-bottom: 50px;
+  min-width: 350px;
+}
+
+@media screen and (max-width: 800px) {
+  .main-content {
+    display: block;
+    position: relative;
+    top: 0;
+    width: 100%;
+    margin-left: 0em;
+    padding: 30px 10px 30px 0px;
+    margin-bottom: 50px;
+  }
+}
+
+.logo-puma {
+  width: 184px;
+  height: 56px;
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 56px;
+  letter-spacing: 0.3em;
   color: #15355e;
 }
 
-input,
-select {
+.input-field {
+  border: 1px solid #15355e;
   border-radius: 7px;
-  font-size: 1.1em;
+  font-size: 14px;
   background-color: #ffffff;
   display: flex;
   flex-direction: column;
-  margin-top: 30px;
+  margin-top: 25px;
   margin-left: 70px;
   margin-right: 70px;
   padding: 15px;
 }
 
-.submit-btn {
-  align-items: center;
-  background-color: #f7db36;
-  color: #222;
-  border: 2px solid #f7db36;
-  padding: 10px;
-  font-size: 18px;
-  margin: 0 auto;
-  margin-top: 30px;
-  margin-bottom: 30px;
-  cursor: pointer;
-  transition: 0.5s;
-  width: 10em;
-}
-
-.column {
-    display: flex;
-    flex-direction: column;
-}
-
-.row {
-    display: flex;
-    flex-direction: row;
-}
-
-.flex1 {
-    flex: 1;
+.input-field:focus {
+    outline: 0;
+    border: 1px solid #15355E;
 }
 </style>

@@ -1,0 +1,42 @@
+
+<div class="main-content hidden-scroll-bar">
+    <h1 class="tittle ml-4">
+    Disciplinas
+    </h1>
+
+    <div class="tittle sub-tittle ml-4 mb-4">
+    Disciplinas Cadastradas na Plataforma
+    </div>
+
+    <div class="ml-4 input-group">
+    <input
+        v-model="subjectSearch"
+        type="text"
+        id="caixaPesquisa"
+        class="search-input"
+        placeholder="Pesquise por uma disciplina">
+    <em class="fas fa-search input-group-prepend search-icon"></em>
+    </div>
+
+    <div>
+    <button
+        class="btn cd-btn ml-4 my-3"
+        onclick="window.location.href = '/disciplinas/cadastrar'">
+        <em class="fa-solid fa-plus-square mr-2 add-project"></em>Criar Disciplina
+    </button>
+    </div>
+
+    <div class="tabelas">
+    <ListaConsultaDisciplina class="minhasDisciplinas"
+        :title="'Suas Disciplinas'"
+        :dataSubjects="mySubjects"
+        :subjectSearch="subjectSearch"/>
+
+    <hr class="mb-0 mt-5">
+
+    <ListaConsultaDisciplina class="demaisDisciplinas"
+    :title="'Outras Disciplinas'"
+    :dataSubjects="subjects"
+    :subjectSearch="subjectSearch"/>
+    </div>
+</div>
