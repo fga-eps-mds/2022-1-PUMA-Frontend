@@ -21,7 +21,10 @@
               <ItemMenuLateral :props="menuItems.subjects" />
             </b-row>
             <b-row align-h="center">
-              <ItemMenuLateral :props="menuItems.keywords" />
+              <ItemMenuLateral :props="menuItems.users" />
+            </b-row>
+            <b-row align-h="center">
+              <ItemMenuLateral :props="menuItems.userType" />
             </b-row>
             <b-row align-h="center">
               <ItemMenuLateral :props="menuItems.subjectProjects" />
@@ -47,7 +50,7 @@
       <img src="../../../assets/menu-white.svg" class="navbar-icon" @click="showMenuHamburger('menu')"
         alt="Imagem interativa para visualização ou ocultação do Menu">
     </div>
-  
+
     <div id="menu">
       <div class="usuario-logado">
         <span>Olá {{this.$store.getters.user.type}}(a)</span>
@@ -59,7 +62,7 @@
           <ItemMenuLateral :props="menuItems.subjects" />
         </li>
         <li>
-          <ItemMenuLateral :props="menuItems.keywords" />
+          <ItemMenuLateral :props="menuItems.users" />
         </li>
         <li>
           <ItemMenuLateral :props="menuItems.subjectProjects" />
@@ -77,5 +80,3 @@
     </div>
   </div>
 </div>
-
-

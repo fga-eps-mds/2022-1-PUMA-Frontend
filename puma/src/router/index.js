@@ -64,7 +64,7 @@ const routes = [
     },
   },
   {
-    path: '/usuario/recuperacao-senha',
+    path: '/recuperacao-senha',
     name: 'Recuperação Senha',
     component: () => import('../components/usuario/recovery-password/RecoveryPassword.vue'),
     meta: {
@@ -72,7 +72,7 @@ const routes = [
     },
   },
   {
-    path: '/usuario/atualizar-senha',
+    path: '/atualizar-senha',
     name: 'Nova Senha',
     component: () => import('../components/usuario/new-password/NewPassword.vue'),
     meta: {
@@ -161,16 +161,57 @@ const routes = [
   },
   {
     path: '/disciplinas/visualizar/:id',
-    name: 'Visualização d Disciplina',
+    name: 'Visualização de Disciplina',
     component: () => import('../components/disciplina/cadastro-disciplina/CadastroDisciplina.vue'),
     meta: {
       requiresAuth: true,
     },
   },
   {
-    path: '/palavras-chave',
-    name: 'Palavras Chave',
-    component: () => import('../components/palavras-chave/KeyWords.vue'),
+    path: '/tipoUsuario',
+    name: 'Perfis de usuário',
+    component: () => import('../components/tipoUsuario/consulta-tipoUsuario/ConsultaTipoUsuario.vue'),
+    meta: {
+      requiresAuth: true,
+    },
+  },
+  {
+    path: '/tipoUsuario/cadastrar',
+    name: 'Cadastro de Usuário',
+    component: () => import('../components/tipoUsuario/cadastro-tipoUsuario/CadastroTipoUsuario.vue'),
+    meta: {
+      requiresAuth: true,
+    },
+  },
+  {
+    path: '/tipoUsuario/editar/:id',
+    name: 'Edição de Usuário',
+    component: () => import('../components/tipoUsuario/cadastro-tipoUsuario/CadastroTipoUsuario.vue'),
+    meta: {
+      requiresAuth: true,
+    },
+  },
+  {
+    path: '/tipoUsuario/visualizar/:id',
+    name: 'Visualização de Usuário',
+    component: () => import('../components/tipoUsuario/cadastro-tipoUsuario/CadastroTipoUsuario.vue'),
+    meta: {
+      requiresAuth: true,
+
+    },
+  },
+  {
+    path: '/turma/:classid',
+    name: 'Edição de Turma',
+    component: () => import('../components/turma/edicao-turma/EdicaoTurma.vue'),
+    meta: {
+      requiresAuth: true,
+    },
+  },
+  {
+    path: '/turmas',
+    name: 'Visualização de Turmas',
+    component: () => import('../components/turma/visualizacao-turma/VisualizacaoTurma.vue'),
     meta: {
       requiresAuth: true,
     },
@@ -192,7 +233,7 @@ router.beforeEach((to, from, next) => {
   if (to.matched.some((record) => record.meta.requiresAuth)) {
     if (!store.getters.isAuthenticated) {
       next({
-        path: '/usuario/login',
+        path: '/login',
         params: { nextUrl: to.fullPath },
       });
     } else {
